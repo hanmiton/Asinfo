@@ -1,0 +1,108 @@
+8:00
+    pasando servicio cobros rest
+
+    ServicioFacturacionAgil(Importante)
+    EndPoint
+        Put http://localhost:8020/AS2DS-PAD/rest/usuariors/login
+        Body
+            {
+                "nombreUsuario" : "WBEDOYA",
+                "clave" : "d27f5287bff0a3c6f74620e0e8b4db7d",
+                "sistema" : "1"
+            } 
+        Post http://localhost:8020/AS2DS-PAD/rest/ventasrs/creacionFacturaAgil
+
+        Header
+            authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJXQkVET1lBIiwicm9sZSI6IkVjb21tZXJjZSIsImV4cCI6MTU0MTYwOTE5NX0.TdLZnwp2pJEgg6-ldCCzeEd60tFodrB8BUZnehuWn3Y
+            content-type: application/json
+            cookie: as2-uuid=80f74079-98eb-4b9c-9d44-c585fa5a7450; as2-uuid=1df24e2e-9b1c-4965-adac-9588efbeba77; as2-uuid=4fb665dc-f009-4bfe-bde3-53d18a1d2618; as2-uuid=115c22f1-a854-41bb-b248-59c8ebb01691
+        Body
+            {
+                "idOrganizacion": "1",
+                "listadoFacturaClienteResponseDto": [
+                    {
+                    "idOrganizacion": "1",
+                    "cliente": {
+                        "ciudad": "MACHALA",
+                        "codigoISOPais": "ECU",
+                        "condicionPago": "0",
+                        "descripcion": "HANMITLON",
+                        "direccion": "URB. LA LUCHA, AV. TELMO SANDOVAL A-8",
+                        "email": "facturacion@consurr7h.com",
+                        "formaPago": "EFEC",
+                        "identificacion": "9999999999999",
+                        "nombre": "CONSUMIDOR FINAL",
+                        "pais": "ECUADOR",
+                        "provincia": "EL ORO",
+                        "telefono": "072985629",
+                        "tipoCliente": "1",
+                        "tipoIdentificacion": "07"
+                    },
+                    "condicionPago": "01",
+                    "descripcion": "PRUEBA",
+                    "direccionFactura": "URB. LA LUCHA, AV. TELMO SANDOVAL A-8",
+                    "documento": " FACTURA ELECTRONICA",
+                    "email": "facturacion@consurr7h.com",
+                    "establecimiento": "001",
+                    "fecha": "06-11-2018",
+                    "fechaVencimiento" : "30-10-2018",
+                    "identificacionCliente": "9999999999999",
+                    "detalleFacturaClienteResponse": [
+                        {
+                        "idProducto" : "-3550",
+                        "idBodega" : "62",
+                        "cantidad": "1.0",
+                        "codigoProducto": "AUXI0093",
+                        "descuento": "0",
+                        "porcentajeDescuento": "0",
+                        "precio": "0.40"
+                        }
+                    ],
+                    "detalleFormaPagoResponseDto": [
+                        {
+                        "bancoOrigen": "PRODUBANCO DE LA PRODUCCION",
+                        "formaPago": "EFEC",
+                        "numeroCuentaBancariaPago": "12040217332 OPEX",
+                        "valor": "0.40"
+                        }
+                    ],
+                    "numero" : "000024419",
+                    "puntoDeVenta" : "004",
+                    "tipoDocumento" : "01"
+                    }
+                ],
+                "indicadorValidar": true
+            }
+        Post http://localhost:8020/AS2DS-PAD/rest/cobrors/crearCobro
+        Header
+            authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJXQkVET1lBIiwicm9sZSI6IkVjb21tZXJjZSIsImV4cCI6MTU0MTYwOTE5NX0.TdLZnwp2pJEgg6-ldCCzeEd60tFodrB8BUZnehuWn3Y
+            content-type: application/json
+            cookie: as2-uuid=80f74079-98eb-4b9c-9d44-c585fa5a7450; as2-uuid=1df24e2e-9b1c-4965-adac-9588efbeba77; as2-uuid=4fb665dc-f009-4bfe-bde3-53d18a1d2618; as2-uuid=115c22f1-a854-41bb-b248-59c8ebb01691
+        Body
+        {
+            "idCobro": "154270",
+            "idOrganizacion": "1",
+            "idSucursal": "1",
+            "valorTotal" : "0.45",
+            "nombreUsuario": "usuario_anonimo",
+            "idUsuario": "1",
+            "nota": "esto es una prueba",
+            "fecha": "06-11-2018",
+            "idCliente": "76",
+            "idPuntoVenta": "212",
+            "codigoMovil": "234123ds",
+            "listaDetalleCobro": [
+                {
+                "idCuentaPorCobrar": "9143200",
+                "valorCobro" : "0.45"
+                }
+            ],
+            "listaDetalleFormaCobro": [
+                {
+                "idFormaPago": "1",
+                "idCuentaOrganizacion" : "152",
+                "valor" : "0.45"
+                
+                }
+            ]
+            }
